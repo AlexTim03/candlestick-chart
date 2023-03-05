@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px 15px;
+
+  background: #141414;
+  border-radius: 0 0 10px 10px;
+
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 120%;
+  color: #8d8d8d;
+}
+
+.header {
+  padding: 10px 5px;
+  color: white;
+}

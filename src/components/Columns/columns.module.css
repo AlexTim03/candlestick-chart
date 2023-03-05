@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.header {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 115%;
+  color: #8d8d8d;
+}

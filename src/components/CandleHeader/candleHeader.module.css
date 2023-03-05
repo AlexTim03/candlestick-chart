@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 115%;
+  color: #72ed93;
+}
+
+.time {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 115%;
+  color: #ffffff;
+}

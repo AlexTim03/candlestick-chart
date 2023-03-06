@@ -1,0 +1,1 @@
+export type ValueOf<T> = T[Extract<keyof T, string>]

@@ -17,7 +17,7 @@ const PriceChart = () => {
                 <Schedule />
                 <Columns />
             </div>
-            <TimeSwitch />
+            <TimeSwitch activeInterval={activeInterval} />
         </div>
     )
 }

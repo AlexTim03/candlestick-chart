@@ -1,15 +1,11 @@
-import { PickerText } from '../types'
+import { BinanceIntervals, BinanceIntervalsEnum } from '../../models/BinanceIntervals'
 import Picker from './picker'
 import classes from './timeSwitch.module.css'
 
-const TimeSwitch = () => (
+const TimeSwitch = ({ activeInterval }: { activeInterval: BinanceIntervalsEnum }) => (
     <div className={classes.wrapper}>
         <span className={classes.header}>Time</span>
-        <Picker text={PickerText.t15m} />
-        <Picker text={PickerText.t1h} />
-        <Picker text={PickerText.t4h} />
-        <Picker text={PickerText.t1d} />
-        <Picker text={PickerText.t1w} />
+        {Object.values(BinanceIntervals).map(i => <Picker key={i} text={i} isActive={i === activeInterval} />)}
     </div>
 )
 

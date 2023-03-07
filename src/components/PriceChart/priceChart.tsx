@@ -7,17 +7,20 @@ import usePriceChart from './hooks/usePriceChart'
 
 const PriceChart = () => {
     const {
+        candles,
+        handleCandle,
         activeInterval,
-        setActiveInterval
+        handleInterval,
     } = usePriceChart()
+
     return (
         <div className={classes.wrapper}>
             <div className={classes.display}>
                 <CandleHeader />
-                <Schedule />
+                <Schedule candles={candles} handleCandle={handleCandle} />
                 <Columns />
             </div>
-            <TimeSwitch activeInterval={activeInterval} />
+            <TimeSwitch activeInterval={activeInterval} handleInterval={handleInterval} />
         </div>
     )
 }

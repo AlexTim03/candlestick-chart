@@ -2,10 +2,15 @@ import { BinanceIntervals, BinanceIntervalsEnum } from '../../models/BinanceInte
 import Picker from './picker'
 import classes from './timeSwitch.module.css'
 
-const TimeSwitch = ({ activeInterval }: { activeInterval: BinanceIntervalsEnum }) => (
+interface TimeSwitchProps {
+    activeInterval: BinanceIntervalsEnum,
+    handleInterval: (interval: BinanceIntervalsEnum) => void
+}
+
+const TimeSwitch = ({ activeInterval, handleInterval }: TimeSwitchProps) => (
     <div className={classes.wrapper}>
         <span className={classes.header}>Time</span>
-        {Object.values(BinanceIntervals).map(i => <Picker key={i} text={i} isActive={i === activeInterval} />)}
+        {Object.values(BinanceIntervals).map(i => <Picker key={i} text={i} isActive={i === activeInterval} handleInterval={handleInterval} />)}
     </div>
 )
 

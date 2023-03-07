@@ -1,18 +1,27 @@
+import axios from 'axios'
 import { BinanceIntervalsEnum } from '../models/BinanceIntervals'
+import { BinanceResponse } from '../models/BinanceResponse'
+import { Candle } from '../models/Candle'
 import {CURRENCIES, LIMIT} from './config'
 
 export class BinanceApi {
 
-    static getKlines = async (interval: BinanceIntervalsEnum) => {
+    static getKlines = async (interval: BinanceIntervalsEnum): Promise<Candle[]> => {
         try {
-            const response = await fetch(`https://data.binance.com/api/v3/klines?symbol=${CURRENCIES}&limit=${LIMIT}&interval=${interval}`, {
-                mode: 'no-cors'                
-            })
             
-            console.log(response.headers)
+            const response = await axios.get<BinanceResponse>(`https://data.binance.com/api/v3/klines?symbol=${CURRENCIES}&limit=${LIMIT}&interval=${interval}`);
+            const candles = response.data.map(v => ({
+                openTime: v[0],
+                openPrice: v[1],
+                highPrice: v[2],
+                lowPrice: v[3],
+                closePrice: v[4],
+            }))
+            return candles
             
         } catch (error) {
             console.error('BinanceApi error: ', error)
+            return []
         }
     }    
 }

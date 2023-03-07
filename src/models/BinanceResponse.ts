@@ -1,0 +1,1 @@
+export type BinanceResponse = [number, string, string, string, string][]

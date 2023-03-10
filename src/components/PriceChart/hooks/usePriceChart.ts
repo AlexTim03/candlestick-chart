@@ -1,13 +1,13 @@
 import {useState, useEffect, useCallback} from 'react'
+import {CandlestickData} from 'lightweight-charts'
 import {BinanceIntervals, BinanceIntervalsEnum} from '../../../models/BinanceIntervals'
-import {Candle} from '../../../models/Candle'
 import { BinanceApi } from '../../../api'
 
 const INTERVAL_BY_DEFAULT = BinanceIntervals._1d
 
 const usePriceChart = () => {
     const [activeInterval, setActiveInterval] = useState<BinanceIntervalsEnum>(INTERVAL_BY_DEFAULT)
-    const [candles, setCandles] = useState<Candle[]>([])
+    const [candles, setCandles] = useState<CandlestickData[]>([])
     const [activeCandleIdx, setActiveCandleIdx] = useState<number>(0)
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const usePriceChart = () => {
         if (idx !== activeCandleIdx) {
             setActiveCandleIdx(idx)            
         }        
-    }, [])
+    }, [activeCandleIdx])
 
     return {
         candles,

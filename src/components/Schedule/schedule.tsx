@@ -1,10 +1,14 @@
-import { Candle } from "../../models/Candle"
-import Candlestick from "./candlestick"
+import { CandlestickData } from 'lightweight-charts';
+import useSchedule from './hooks/useSchedule'
+//import Candlestick from "./candlestick"
 
-const Schedule = ({ candles, handleCandle }: { candles: Candle[], handleCandle: (idx: number) => void }) => (
-    <div>
-        {candles.map((c, index) => <Candlestick key={c.openTime} idx={index} handleCandle={handleCandle} />)}
-    </div>
-)
+const Schedule = ({ candles, handleCandle }: { candles: CandlestickData[], handleCandle: (idx: number) => void }) => {
+    const { chartContainerRef } = useSchedule({ candles })
+
+    return <div ref={chartContainerRef} />
+}
+
+
+
 
 export default Schedule

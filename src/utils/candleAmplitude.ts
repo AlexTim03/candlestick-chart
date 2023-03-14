@@ -1,0 +1,1 @@
+export const candleAmplitude = (high: number, low: number) => low ? high / low * 100 - 100 : 0

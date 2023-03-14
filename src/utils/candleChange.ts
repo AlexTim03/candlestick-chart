@@ -1,0 +1,1 @@
+export const candleChange = (open: number, close: number) => open ? close/open * 100 - 100 : 0
